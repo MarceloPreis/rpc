@@ -1,0 +1,25 @@
+version: '3'
+services:
+ node-app-1:
+    build:
+      context: ./node-app-1
+      # dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    # command: /bin/sh -c "npm install && node app.js"
+
+#  node-app-2:
+#     build:
+#       context: ./node-app-2
+#       dockerfile: Dockerfile
+#     ports:
+#       - "3001:3001"
+#     networks:
+#       - app-network
+#     command: /bin/sh -c "npm install && node app.js"
+
+networks:
+ app-network:
+    driver: bridge
